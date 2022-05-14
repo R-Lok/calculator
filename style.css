@@ -1,0 +1,27 @@
+h1 {
+    text-align: center;
+}
+
+.calcContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.calc {
+    height: 700px;
+    width: 500px;
+    border: 2px solid black;
+    background: rgb(163, 163, 204);
+    display: flex;
+    justify-content: center;
+}
+
+.display {
+    height: 32px;
+    width: 400px;
+    background: white;
+    font-size: 24px;
+    margin-top: 50px;
+    border: solid black 1px;
+    text-align: right;
+}
