@@ -45,5 +45,8 @@ button {
     gap: 50px;
     justify-content: center;
     width: 400px;
-    
+}
+
+.clear {
+    width: 200px;
 }
