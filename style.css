@@ -1,3 +1,7 @@
+* {
+    font-family: "Roboto";
+}
+
 h1 {
     text-align: center;
 }
@@ -11,7 +15,7 @@ h1 {
     height: 700px;
     width: 500px;
     border: 2px solid black;
-    background: rgb(163, 163, 204);
+    background: rgb(171, 171, 177);
     border-radius: 10px;
 }
 
@@ -30,18 +34,21 @@ h1 {
     font-size: 24px;
     text-align: right;
     padding: 10px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 
 .display {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-
+    border-bottom: 1px solid black;
 }
 
 .prevNumberDisplay {
     font-size: 18px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    border-top: 1px solid black;
 }
 
 button {

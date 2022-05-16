@@ -1,6 +1,9 @@
 let display = document.querySelector('.display');
 let prevNumberDisplay = document.querySelector('.prevNumberDisplay');
 let clearBtn = document.querySelector('.clear');
+let delBtn = document.querySelector('.delete');
+let equalsBtn = document.querySelector('.equals');
+let dotBtn = document.querySelector('.dot');
 let oneBtn = document.querySelector('.one');
 let twoBtn = document.querySelector('.two');
 let threeBtn = document.querySelector('.three');
@@ -16,8 +19,9 @@ let subtractBtn = document.querySelector('.subtract');
 let multiplyBtn = document.querySelector('.multiply');
 let divideBtn = document.querySelector('.divide');
 let digitButtons = [oneBtn, twoBtn, threeBtn, fourBtn, fiveBtn, sixBtn, sevenBtn, eightBtn, nineBtn, zeroBtn];
-let operator;
-let storedNumber = ""
+let operator = "";
+let storedNumber = "";
+let pressedEqual = false;
 
 function add(numOne, numTwo) {
     return numOne + numTwo;
@@ -36,7 +40,32 @@ function divide(numOne, numTwo) {
 };
 
 function operate(numOne, numTwo, operator) {
-    return operator(numOne,numTwo);
+    switch (operator) {
+        case "add":
+            return add(Number(storedNumber), Number(display.textContent));
+            break;
+        case "subtract":
+            return subtract(Number(storedNumber), Number(display.textContent));
+            break;
+        case "multiply":
+            return multiply(Number(storedNumber), Number(display.textContent));
+            break;
+        case "divide":
+            return divide(Number(storedNumber), Number(display.textContent));
+            break;
+    }
+}
+
+function getResult() {
+    if (pressedEqual === true) {
+        return;
+    };
+    let currentNumber = Number(display.textContent.trim());
+    let result = operate(storedNumber, currentNumber, operator);
+    prevNumberDisplay.textContent += " " + currentNumber + " =";
+    display.textContent = result;
+    storedNumber = ""
+    pressedEqual = true;
 }
 
 function clearDisplay() {
@@ -47,9 +76,32 @@ function clearDisplay() {
     
 }
 
+function checkDisplayForDecimal() {
+    let decimal = "."
+    return display.textContent.includes(decimal);
+}
+
+function addDecimal() {
+    let decimalPresent = checkDisplayForDecimal();
+    if (decimalPresent === false) {
+        display.textContent += ".";
+    } else {
+        return;
+    }
+}
+
 //add pressed number into display
 function addNumber(e) {
-    display.textContent += e.target.textContent.trim();
+    if (e.target.textContent.trim() == 0 && operator === "divide" && display.textContent === "") {
+        alert("Cannot divide by 0!");
+    } else {
+        display.textContent += e.target.textContent.trim();
+    } 
+}
+
+//remove last digit in number
+function delLastDigit () {
+    display.textContent = display.textContent.slice(0, -1);
 }
 
 //calculate new stored number using number in display, stored number, and previously pressed operator
@@ -98,12 +150,16 @@ function pressOperator(e) {
     display.textContent = "";
     operator = e.target.classList[0];
     displayPressedOperator();
+    pressedEqual = false;
 
 }
 
 clearBtn.addEventListener('click', clearDisplay);
+delBtn.addEventListener('click', delLastDigit);
 digitButtons.forEach(button => button.addEventListener('click', addNumber));
 addBtn.addEventListener('click', pressOperator);
 subtractBtn.addEventListener('click', pressOperator);
 multiplyBtn.addEventListener('click', pressOperator);
 divideBtn.addEventListener('click', pressOperator);
+equalsBtn.addEventListener('click', getResult);
+dotBtn.addEventListener('click', addDecimal);
