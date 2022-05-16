@@ -52,29 +52,53 @@ function addNumber(e) {
     display.textContent += e.target.textContent.trim();
 }
 
+//calculate new stored number using number in display, stored number, and previously pressed operator
+function calculateStoredNumber() {
+    switch (operator) {
+        case "add":
+            storedNumber = add(Number(storedNumber), Number(display.textContent));
+            break;
+        case "subtract":
+            storedNumber = subtract(Number(storedNumber), Number(display.textContent));
+            break;
+        case "multiply":
+            storedNumber = multiply(Number(storedNumber), Number(display.textContent));
+            break;
+        case "divide":
+            storedNumber = divide(Number(storedNumber), Number(display.textContent));
+            break;
+    }
+}
+
+function displayPressedOperator() {
+    switch(operator) {
+        case "add":
+            prevNumberDisplay.textContent += " +";
+            break;
+        case "subtract":
+            prevNumberDisplay.textContent += " -";
+            break;
+        case "multiply":
+            prevNumberDisplay.textContent += " ×";
+            break;
+        case "divide":
+            prevNumberDisplay.textContent += " ÷";
+            break;
+    }
+}
+
 //working on function for operators being pressed
 function pressOperator(e) {
     if (storedNumber === "") {
         storedNumber = Number(display.textContent);
     } else {
-        switch (operator) {
-            case "add":
-                storedNumber = add(Number(storedNumber), Number(display.textContent));
-                break;
-            case "subtract":
-                storedNumber = subtract(Number(storedNumber), Number(display.textContent));
-                break;
-            case "multiply":
-                storedNumber = multiply(Number(storedNumber), Number(display.textContent));
-                break;
-            case "divide":
-                storedNumber = divide(Number(storedNumber), Number(display.textContent));
-                break;
-        }
+        calculateStoredNumber();
     }
     prevNumberDisplay.textContent = storedNumber;
     display.textContent = "";
     operator = e.target.classList[0];
+    displayPressedOperator();
+
 }
 
 clearBtn.addEventListener('click', clearDisplay);
