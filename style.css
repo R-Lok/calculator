@@ -12,21 +12,36 @@ h1 {
     width: 500px;
     border: 2px solid black;
     background: rgb(163, 163, 204);
+    border-radius: 10px;
 }
 
 .displayContainer {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 50px;
 }
 
-.display {
+.display, .prevNumberDisplay {
     height: 32px;
     width: 400px;
     background: white;
     font-size: 24px;
-    margin-top: 50px;
-    border: solid black 1px;
     text-align: right;
+    padding: 10px;
+}
+
+.display {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.prevNumberDisplay {
+    font-size: 18px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 button {
