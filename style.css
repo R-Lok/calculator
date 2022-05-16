@@ -28,45 +28,56 @@ h1, h2 {
 }
 
 .display, .prevNumberDisplay {
-    height: 32px;
+    height: 52px;
     width: 400px;
     background: white;
-    font-size: 24px;
     text-align: right;
-    padding: 10px;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    padding: 2px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    box-sizing: border-box;
 }
 
 .display {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+    font-size: 40px;
 }
 
 .prevNumberDisplay {
-    font-size: 18px;
+    font-size: 20px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-    border-top: 1px solid black;
+    border-top: 2px solid black;
 }
 
 button {
-    height: 50px;
-    width: 50px;
+    height: 72px;
+    width: 90px;
+    border-radius: 3px;
+    border: 2px solid black;
 }
 
 .buttonContainer {
-    margin: 50px;
+    justify-content: center;
     display: flex;
 }
 
-.digitButtons {
+.buttons {
+    margin: 50px 0px;
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
-    justify-content: center;
+    gap: 10px;
+    justify-content: space-around;
     width: 400px;
+}
+
+.operator {
+    background: darkgray;
 }
 
 .clear, .delete {
