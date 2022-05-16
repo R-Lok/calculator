@@ -61,7 +61,8 @@ function getResult() {
         return;
     };
     let currentNumber = Number(display.textContent.trim());
-    let result = operate(storedNumber, currentNumber, operator);
+    let unroundedResult = operate(storedNumber, currentNumber, operator);
+    let result = Math.round(unroundedResult * 1000)/1000;
     prevNumberDisplay.textContent += " " + currentNumber + " =";
     display.textContent = result;
     storedNumber = ""
@@ -90,7 +91,7 @@ function addDecimal() {
     }
 }
 
-//add pressed number into display
+//add pressed number into display || need to work on this as needs to be able to divide by num > 0 < 1
 function addNumber(e) {
     if (e.target.textContent.trim() == 0 && operator === "divide" && display.textContent === "") {
         alert("Cannot divide by 0!");
@@ -120,6 +121,7 @@ function calculateStoredNumber() {
             storedNumber = divide(Number(storedNumber), Number(display.textContent));
             break;
     }
+    storedNumber = Math.round(storedNumber * 1000)/1000;
 }
 
 function displayPressedOperator() {
