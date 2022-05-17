@@ -28,7 +28,7 @@ h1, h2 {
 
 .display, .prevNumberDisplay {
     height: auto;
-    min-height: 52px;
+    min-height: 54px;
     width: 400px;
     background: rgb(115, 162, 119);
     text-align: right;

@@ -45,13 +45,13 @@ function operate(numOne, numTwo, operator) {
             return add(Number(storedNumber), Number(display.textContent));
             break;
         case "subtract":
-            return subtract(Number(storedNumber), Number(display.textContent));
+            return subtract(storedNumber, display.textContent);
             break;
         case "multiply":
-            return multiply(Number(storedNumber), Number(display.textContent));
+            return multiply(storedNumber, display.textContent);
             break;
         case "divide":
-            return divide(Number(storedNumber), Number(display.textContent));
+            return divide(storedNumber, display.textContent);
             break;
     }
 }
@@ -115,13 +115,13 @@ function calculateStoredNumber() {
             storedNumber = add(Number(storedNumber), Number(display.textContent));
             break;
         case "subtract":
-            storedNumber = subtract(Number(storedNumber), Number(display.textContent));
+            storedNumber = subtract(storedNumber, display.textContent);
             break;
         case "multiply":
-            storedNumber = multiply(Number(storedNumber), Number(display.textContent));
+            storedNumber = multiply(storedNumber, display.textContent);
             break;
         case "divide":
-            storedNumber = divide(Number(storedNumber), Number(display.textContent));    
+            storedNumber = divide(storedNumber, display.textContent);    
             break;
     }
     storedNumber = Math.round(storedNumber * 1000)/1000;
