@@ -147,7 +147,7 @@ function displayPressedOperator() {
 //working on function for operators being pressed
 function pressOperator(e) {
     if (storedNumber === "") {
-        storedNumber = Number(display.textContent);
+        storedNumber = display.textContent;
     } else if (operator === "divide" && display.textContent == 0 || operator === "divide" 
         && display.textContent === "") {
         dividedByZero();
