@@ -12,7 +12,7 @@ h1, h2 {
 }
 
 .calc {
-    width: 500px;
+    width: 450px;
     border: 2px solid black;
     background: rgb(171, 171, 177);
     border-radius: 10px;
@@ -23,7 +23,7 @@ h1, h2 {
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .display, .prevNumberDisplay {
@@ -60,6 +60,8 @@ button {
     width: 90px;
     border-radius: 3px;
     border: 2px solid black;
+    background: white;
+    font-size: 20px;
 }
 
 .buttonContainer {
@@ -68,7 +70,7 @@ button {
 }
 
 .buttons {
-    margin: 50px 0px;
+    margin: 25px 0px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
