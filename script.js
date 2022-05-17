@@ -61,7 +61,8 @@ function getResult() {
         return;
     };
 
-    if (operator === "divide" && display.textContent == 0) {
+    if (operator === "divide" && display.textContent == 0 || operator === "divide" 
+        && display.textContent === "") {
         dividedByZero();
         return;
     }
@@ -98,7 +99,6 @@ function addDecimal() {
     }
 }
 
-//add pressed number into display || need to work on this as needs to be able to divide by num > 0 < 1
 function addNumber(e) {
         display.textContent += e.target.textContent.trim();
 };
@@ -148,7 +148,8 @@ function displayPressedOperator() {
 function pressOperator(e) {
     if (storedNumber === "") {
         storedNumber = Number(display.textContent);
-    } else if (operator === "divide" && display.textContent == 0) {
+    } else if (operator === "divide" && display.textContent == 0 || operator === "divide" 
+        && display.textContent === "") {
         dividedByZero();
         return;
     } else {
@@ -158,8 +159,7 @@ function pressOperator(e) {
     display.textContent = "";
     operator = e.target.classList[0];
     displayPressedOperator();
-    pressedEqual = false;
-
+    pressedEqual = false
 }
 
 clearBtn.addEventListener('click', clearDisplay);
