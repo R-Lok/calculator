@@ -84,7 +84,9 @@ function checkDisplayForDecimal() {
 
 function addDecimal() {
     let decimalPresent = checkDisplayForDecimal();
-    if (decimalPresent === false) {
+    if (decimalPresent === false && display.textContent === "") {
+        display.textContent += "0.";   
+    } else if (decimalPresent === false) {
         display.textContent += ".";
     } else {
         return;

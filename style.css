@@ -12,7 +12,6 @@ h1, h2 {
 }
 
 .calc {
-    height: 700px;
     width: 500px;
     border: 2px solid black;
     background: rgb(171, 171, 177);
@@ -30,7 +29,7 @@ h1, h2 {
 .display, .prevNumberDisplay {
     height: 52px;
     width: 400px;
-    background: white;
+    background: rgb(115, 162, 119);
     text-align: right;
     padding: 2px;
     border-left: 2px solid black;
@@ -81,5 +80,5 @@ button {
 }
 
 .clear, .delete {
-    width: 150px;
+    width: 195px;
 }
