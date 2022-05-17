@@ -19,6 +19,7 @@ let subtractBtn = document.querySelector('.subtract');
 let multiplyBtn = document.querySelector('.multiply');
 let divideBtn = document.querySelector('.divide');
 let digitButtons = [oneBtn, twoBtn, threeBtn, fourBtn, fiveBtn, sixBtn, sevenBtn, eightBtn, nineBtn, zeroBtn];
+let operatorBtns = [subtractBtn, addBtn, multiplyBtn, divideBtn];
 let operator = "";
 let storedNumber = "";
 let pressedEqual = false;
@@ -103,7 +104,6 @@ function addNumber(e) {
         display.textContent += e.target.textContent.trim();
 };
 
-//remove last digit in number
 function delLastDigit () {
     display.textContent = display.textContent.slice(0, -1);
 }
@@ -144,7 +144,6 @@ function displayPressedOperator() {
     }
 }
 
-//working on function for operators being pressed
 function pressOperator(e) {
     if (storedNumber === "") {
         storedNumber = display.textContent;
@@ -162,19 +161,17 @@ function pressOperator(e) {
     pressedEqual = false
 }
 
-clearBtn.addEventListener('click', clearDisplay);
-delBtn.addEventListener('click', delLastDigit);
-digitButtons.forEach(button => button.addEventListener('click', addNumber));
-addBtn.addEventListener('click', pressOperator);
-subtractBtn.addEventListener('click', pressOperator);
-multiplyBtn.addEventListener('click', pressOperator);
-divideBtn.addEventListener('click', pressOperator);
-equalsBtn.addEventListener('click', getResult);
-dotBtn.addEventListener('click', addDecimal);
-
 function dividedByZero() {
     alert("Cannot divide by 0!");
         operator = ""
         prevNumberDisplay.textContent = prevNumberDisplay.textContent.slice(0,-1);
         display.textContent = "";
 }
+
+clearBtn.addEventListener('click', clearDisplay);
+delBtn.addEventListener('click', delLastDigit);
+digitButtons.forEach(button => button.addEventListener('click', addNumber));
+operatorBtns.forEach(button => button.addEventListener('click', pressOperator));
+equalsBtn.addEventListener('click', getResult);
+dotBtn.addEventListener('click', addDecimal);
+
