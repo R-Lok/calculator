@@ -60,6 +60,11 @@ function getResult() {
     if (pressedEqual === true) {
         return;
     };
+
+    if (operator === "divide" && display.textContent == 0) {
+        dividedByZero();
+        return;
+    }
     let currentNumber = Number(display.textContent.trim());
     let unroundedResult = operate(storedNumber, currentNumber, operator);
     let result = Math.round(unroundedResult * 1000)/1000;
@@ -95,12 +100,8 @@ function addDecimal() {
 
 //add pressed number into display || need to work on this as needs to be able to divide by num > 0 < 1
 function addNumber(e) {
-    if (e.target.textContent.trim() == 0 && operator === "divide" && display.textContent === "") {
-        alert("Cannot divide by 0!");
-    } else {
         display.textContent += e.target.textContent.trim();
-    } 
-}
+};
 
 //remove last digit in number
 function delLastDigit () {
@@ -120,7 +121,7 @@ function calculateStoredNumber() {
             storedNumber = multiply(Number(storedNumber), Number(display.textContent));
             break;
         case "divide":
-            storedNumber = divide(Number(storedNumber), Number(display.textContent));
+            storedNumber = divide(Number(storedNumber), Number(display.textContent));    
             break;
     }
     storedNumber = Math.round(storedNumber * 1000)/1000;
@@ -147,6 +148,9 @@ function displayPressedOperator() {
 function pressOperator(e) {
     if (storedNumber === "") {
         storedNumber = Number(display.textContent);
+    } else if (operator === "divide" && display.textContent == 0) {
+        dividedByZero();
+        return;
     } else {
         calculateStoredNumber();
     }
@@ -167,3 +171,10 @@ multiplyBtn.addEventListener('click', pressOperator);
 divideBtn.addEventListener('click', pressOperator);
 equalsBtn.addEventListener('click', getResult);
 dotBtn.addEventListener('click', addDecimal);
+
+function dividedByZero() {
+    alert("Cannot divide by 0!");
+        operator = ""
+        prevNumberDisplay.textContent = prevNumberDisplay.textContent.slice(0,-1);
+        display.textContent = "";
+}
