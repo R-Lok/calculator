@@ -71,7 +71,6 @@ function clearDisplay() {
     prevNumberDisplay.textContent = "";
     storedNumber = ""
     operator = ""
-    
 }
 
 function checkDisplayForDecimal() {
@@ -148,7 +147,7 @@ function pressOperator(e) {
     display.textContent = "";
     operator = e.target.classList[0];
     displayPressedOperator();
-    pressedEqual = false
+    pressedEqual = false;
 }
 
 function dividedByZero() {
