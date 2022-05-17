@@ -85,3 +85,11 @@ button {
 .clear, .delete {
     width: 195px;
 }
+
+.clear {
+    background: lightcoral;
+}
+
+.delete {
+    background: rgb(89, 116, 150);
+}
