@@ -174,7 +174,7 @@ window.addEventListener('keydown', (e) => {
     if (e.key === 'Backspace') {
         delLastDigit();
     };
-    if (e.key === "=") {
+    if (e.key === "=" || e.key === "Enter") {
         equalsBtn.click();
     }
     if (e.key === "+") {
