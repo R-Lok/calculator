@@ -189,6 +189,9 @@ window.addEventListener('keydown', (e) => {
     if (e.key === ".") {
         dotBtn.click();
     }
+    if (e.key === "Shift") {
+        clearDisplay();
+    }
 })
 
 
