@@ -134,6 +134,9 @@ function displayPressedOperator() {
 }
 
 function pressOperator(e) {
+    if (storedNumber === "" && display.textContent === "") {
+        return;
+    }
     if (storedNumber === "") {
         storedNumber = display.textContent;
     } else if (operator === "divide" && display.textContent == 0 || operator === "divide" 
