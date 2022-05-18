@@ -48,7 +48,7 @@ function operate(numOne, numTwo, operator) {
 }
 
 function getResult() {
-    if (pressedEqual === true) {
+    if (pressedEqual === true || operator === "") {
         return;
     };
 
@@ -69,12 +69,12 @@ function getResult() {
 function clearDisplay() {
     display.textContent = "";
     prevNumberDisplay.textContent = "";
-    storedNumber = ""
-    operator = ""
+    storedNumber = "";
+    operator = "";
 }
 
 function checkDisplayForDecimal() {
-    let decimal = "."
+    let decimal = ".";
     return display.textContent.includes(decimal);
 }
 
@@ -147,7 +147,7 @@ function pressOperator(e) {
     display.textContent = "";
     operator = e.target.classList[0];
     displayPressedOperator();
-    pressedEqual = false;
+    pressedEqual = false
 }
 
 function dividedByZero() {
