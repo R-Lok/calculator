@@ -89,8 +89,8 @@ function addDecimal() {
     }
 }
 
-function addNumber(e) {
-        display.textContent += e.target.textContent.trim();
+function addNumber(number) {
+        display.textContent += number;
 };
 
 function delLastDigit () {
@@ -159,8 +159,36 @@ function dividedByZero() {
 
 clearBtn.addEventListener('click', clearDisplay);
 delBtn.addEventListener('click', delLastDigit);
-digitButtons.forEach(button => button.addEventListener('click', addNumber));
+digitButtons.forEach(button => button.addEventListener('click', (e) => addNumber(e.target.textContent)));
 operatorBtns.forEach(button => button.addEventListener('click', pressOperator));
 equalsBtn.addEventListener('click', getResult);
 dotBtn.addEventListener('click', addDecimal);
+
+window.addEventListener('keydown', (e) => {
+    if (e.key >= 0 && e.key <= 9) {
+        addNumber(e.key);
+    };
+    if (e.key === 'Backspace') {
+        delLastDigit();
+    };
+    if (e.key === "=") {
+        equalsBtn.click();
+    }
+    if (e.key === "+") {
+        addBtn.click();
+    }
+    if (e.key === "-") {
+        subtractBtn.click();
+    }
+    if (e.key === "/") {
+        divideBtn.click();
+    }
+    if (e.key === "*") {
+        multiplyBtn.click();
+    }
+    if (e.key === ".") {
+        dotBtn.click();
+    }
+})
+
 
